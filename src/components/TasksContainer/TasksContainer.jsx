@@ -1,6 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useContext } from "react";
 import AppContext from "../../store/AppContext";
+import TaskForm from "../TaskForm/TaskForm";
+import TaskList from "../TasksList/TasksList";
+import TasksSorter from "../TasksSorter/TasksSorter";
+import "./TasksContainer.scss";
 
 const TasksContainer = () => {
   const state = useContext(AppContext);
@@ -18,7 +22,13 @@ const TasksContainer = () => {
   useEffect(() => {
     loadTasks();
   }, []);
-  return <p>Tasks Container</p>;
+  return (
+    <div className="tasksContainer">
+      <TaskForm />
+      <TasksSorter />
+      <TaskList />
+    </div>
+  );
 };
 
 export default TasksContainer;
